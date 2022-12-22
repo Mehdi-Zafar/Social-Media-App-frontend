@@ -1,6 +1,4 @@
-import GoogleLogin from 'react-google-login';
 import {useNavigate} from 'react-router-dom';
-import {FcGoogle} from 'react-icons/fc';
 import { client } from '../client';
 import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
@@ -61,22 +59,6 @@ const Login = () => {
                         <div id="signInDiv">
 
                         </div>
-                        {/* <GoogleLogin
-                            clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
-                            render={(renderProps)=>(
-                                <button
-                                    type="button"
-                                    className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}
-                                >
-                                    <FcGoogle className="mr-4" /> Sign in with Google
-                                </button>
-                            )}
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy="single_host_origin"
-                        /> */}
                     </div>
                 </div>
             </div>
