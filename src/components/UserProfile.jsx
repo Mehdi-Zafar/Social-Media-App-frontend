@@ -79,11 +79,10 @@ const UserProfile = () => {
                         <div className="absolute top-0 z-1 right-0 p-2">
                             {userId === user._id && (
                                 <button 
-                                className="bg-white text-2xl font-bold p-2 rounded-full cursor-pointer outline-none shadow-md" 
-                                title="Logout"
+                                className="bg-red-500 flex items-center text-white text-xl font-bold py-2 px-3 rounded-full cursor-pointer outline-none shadow-md" 
                                 onClick={logout}
                                 >
-                                    {<AiOutlineLogout/>}
+                                    <span className="text-lg font-medium">Logout</span>&nbsp;{<AiOutlineLogout/>}
                                 </button>
                             )}
                         </div>
