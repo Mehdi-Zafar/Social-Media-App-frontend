@@ -28,12 +28,12 @@ const Login = () => {
 
     useEffect(()=>{
         /*global google*/
-        google.accounts.id.initialize({
+        google && google.accounts.id.initialize({
             client_id: process.env.REACT_APP_GOOGLE_API_TOKEN,
             callback: responseGoogle
         });
 
-        google.accounts.id.renderButton(
+        google && google.accounts.id.renderButton(
             document.getElementById("signInDiv"),
             {theme:"outline",size:"large"}
         )
