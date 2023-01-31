@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
 import shareVideo from "../assets/share.mp4"
 import logo from "../assets/logowhite.png"
+import { GoogleLogin } from '@react-oauth/google';
 
 
 const Login = () => {
@@ -26,18 +27,18 @@ const Login = () => {
     }
 
 
-    useEffect(()=>{
-        /*global google*/
-        google && google.accounts.id.initialize({
-            client_id: process.env.REACT_APP_GOOGLE_API_TOKEN,
-            callback: responseGoogle
-        });
+    // useEffect(()=>{
+    //     /*global google*/
+    //     google && google.accounts.id.initialize({
+    //         client_id: process.env.REACT_APP_GOOGLE_API_TOKEN,
+    //         callback: responseGoogle
+    //     });
 
-        google && google.accounts.id.renderButton(
-            document.getElementById("signInDiv"),
-            {theme:"outline",size:"large"}
-        )
-    },[])
+    //     google && google.accounts.id.renderButton(
+    //         document.getElementById("signInDiv"),
+    //         {theme:"outline",size:"large"}
+    //     )
+    // },[])
 
     return ( 
         <div className="flex justify-start items-center flex-col h-screen">
@@ -56,9 +57,17 @@ const Login = () => {
                         <img src={logo} width="130px" alt="logo" />
                     </div>
                     <div className="shadow-2xl">
-                        <div id="signInDiv">
+                        {/* <div id="signInDiv">
 
-                        </div>
+                        </div> */}
+                        <GoogleLogin
+                            onSuccess={credentialResponse => {
+                                responseGoogle(credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+                        />;
                     </div>
                 </div>
             </div>

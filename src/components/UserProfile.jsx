@@ -5,6 +5,7 @@ import { userCreatedPinsQuery,userQuery,userSavedPinsQuery } from "../utils/data
 import { client } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
+import { googleLogout } from '@react-oauth/google';
 
 const randomImage = 'https://source.unsplash.com/1600x900/?nature,photography,technology'
 
@@ -51,6 +52,7 @@ const UserProfile = () => {
 
     const logout = ()=>{
         localStorage.clear()
+        googleLogout();
         navigate('/login')
     }
 
